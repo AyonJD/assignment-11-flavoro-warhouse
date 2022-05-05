@@ -1,8 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const SingleProductCard = (props) => {
     const { name, img, _id, price } = props.singleProduct;
+    const navigate = useNavigate()
+    const handleUpdate = id => {
+        navigate(`/inventory/${id}`)
+    }
     return (
         // <Link to={}>
         <div className='flex justify-around items-center py-5 coin-card cursor-pointer rounded-lg'>
@@ -12,7 +16,7 @@ const SingleProductCard = (props) => {
                 <h1 className='text-lg font-bold text-gray-600'>{price}</h1>
             </div>
             <button>Delete</button>
-            <button>Update</button>
+            <button onClick={() => handleUpdate(_id)}>Update</button>
         </div>
         // </Link>
     );
