@@ -17,7 +17,7 @@ const Navbar = () => {
                                     alt="Workflow"
                                 />
                             </div>
-                            <div className="hidden md:flex justify-between">
+                            <div className="hidden md:flex justify-between md:ml-auto">
                                 <div className="ml-10 flex items-baseline space-x-4 text-lg">
                                     <CustomLink
                                         to="/"
@@ -64,6 +64,7 @@ const Navbar = () => {
                             </div>
                         </div>
                         <div className="-mr-2 flex md:hidden">
+                        <button className='md:hidden block mr-5 md:ml-24 text-white border-2 border-white px-5 py-1 rounded-md'>Signup</button>
                             <button
                                 onClick={() => setIsOpen(!isOpen)}
                                 type="button"
