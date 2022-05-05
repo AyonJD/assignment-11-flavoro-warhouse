@@ -1,19 +1,35 @@
 import React, { useState } from 'react';
 import { Transition } from "@headlessui/react";
 import CustomLink from '../../CustomLink/CustomLink';
+import logo from '../../../Assets/Images/logo.png'
+import { Link } from 'react-router-dom';
+import { BsFacebook, BsTwitter, BsInstagram } from 'react-icons/bs'
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     return (
-        <div className=' sticky top-0'>
-            <nav className="bg-gray-800 py-4">
+        <div className=' sticky top-0 z-50 shadow-sm'>
+            <div className="bg-[#6D9900] hidden md:block">
+                <div className="flex justify-between items-center h-12 container mx-auto">
+                    <div className=" text-white text-md">
+                        <p>Get Free Shipping – Free 30 Day Money Back Guarantee</p>
+                    </div>
+                    <div className="right-icon flex text-white">
+                        <Link to="https://www.facebook.com/ayon.jodder.75/"><BsFacebook className='ml-8 text-xl'></BsFacebook></Link>
+                        <Link to="https://github.com/AyonJD"><BsTwitter className='ml-8 text-xl'></BsTwitter></Link>
+                        <Link to="https://github.com/AyonJD"><BsInstagram className='ml-8 text-xl'></BsInstagram></Link>
+                    </div>
+                </div>
+            </div>
+
+            <nav className="bg-[#F5F5F5] py-4">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex items-center justify-between md:block">
                         <div className="flex items-center">
                             <div className="flex-shrink-0">
                                 <img
-                                    className="h-8 w-8"
-                                    src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
+                                    className=""
+                                    src={logo}
                                     alt="Workflow"
                                 />
                             </div>
@@ -21,54 +37,54 @@ const Navbar = () => {
                                 <div className="ml-10 flex items-baseline space-x-4 text-lg">
                                     <CustomLink
                                         to="/"
-                                        className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium"
+                                        className="px-3 py-2 rounded-md text-sm font-medium"
                                     >
                                         Home
                                     </CustomLink>
 
                                     <CustomLink
                                         to="/inventory"
-                                        className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                                        className="px-3 py-2 rounded-md text-sm font-medium"
                                     >
                                         Inventory
                                     </CustomLink>
 
                                     <CustomLink
                                         to="/blog"
-                                        className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                                        className="px-3 py-2 rounded-md text-sm font-medium"
                                     >
                                         Blog
                                     </CustomLink>
 
                                     <CustomLink
                                         to="add-item"
-                                        className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                                        className="px-3 py-2 rounded-md text-sm font-medium"
                                     >
                                         Add Item
                                     </CustomLink>
 
                                     <CustomLink
                                         to="my-items"
-                                        className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                                        className="px-3 py-2 rounded-md text-sm font-medium"
                                     >
                                         My Items
                                     </CustomLink>
                                     <CustomLink
                                         to="contact-us"
-                                        className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                                        className="px-3 py-2 rounded-md text-sm font-medium"
                                     >
                                         Contact
                                     </CustomLink>
                                 </div>
-                                <button className='md:ml-24 text-white border-2 border-white px-5 py-1 rounded-md'>Signup</button>
+                                <button className='md:ml-24 text-white bg-[#6D9900] border-2 border-transparent hover:border-2 hover:border-[#6D9900] hover:bg-transparent hover:text-[#6D9900] transition-all transition-duration:150ms font-medium hover:font-medium px-5 py-1 rounded-md'>Signup</button>
                             </div>
                         </div>
                         <div className="-mr-2 flex md:hidden">
-                        <button className='md:hidden block mr-5 md:ml-24 text-white border-2 border-white px-5 py-1 rounded-md'>Signup</button>
+                            <button className='md:ml-24 md:hidden block text-white bg-[#6D9900] border-2 border-transparent hover:border-2 hover:border-[#6D9900] hover:bg-transparent hover:text-[#6D9900] transition-all transition-duration:150ms font-medium hover:font-medium px-5 py-1 rounded-md'>Signup</button>
                             <button
                                 onClick={() => setIsOpen(!isOpen)}
                                 type="button"
-                                className="bg-gray-900 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+                                className="bg-gray-900 ml-5 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
                                 aria-controls="mobile-menu"
                                 aria-expanded="false"
                             >
