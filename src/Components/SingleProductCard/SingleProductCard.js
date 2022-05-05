@@ -15,7 +15,7 @@ const SingleProductCard = (props) => {
                 <h1 className='text-lg font-bold text-gray-600'>{name}</h1>
                 <h1 className='text-lg font-bold text-gray-600'>{price}</h1>
             </div>
-            <button>Delete</button>
+            <button onClick={() => props.handleDelete(_id)}>Delete</button>
             <button onClick={() => handleUpdate(_id)}>Update</button>
         </div>
         // </Link>
