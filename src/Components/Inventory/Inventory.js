@@ -25,7 +25,7 @@ const Inventory = () => {
 
     }
     return (
-        <div>
+        <div className='container mx-auto grid grid-cols-1 md:grid-cols-3 gap-x-10 gap-y-5'>
             {
                 product.map(e => <SingleProductCard key={e._id} singleProduct={e} handleDelete={handleDelete}></SingleProductCard>)
             }
