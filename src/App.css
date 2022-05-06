@@ -38,9 +38,77 @@ body{
 /* Nav */
 nav a {
     font-size: 18px !important;
-    transition: .2s ease-in-out;
 }
 
 nav a:hover {
     color: #6D9900 !important;
+}
+
+/* Nav item order */
+.nav-item{
+    line-height: 2.1 !important;
+}
+ul li a{
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: .9rem;
+    font-weight: 600;
+    letter-spacing: 1.2;
+    color: var(--secondery);
+    padding: .2rem 1.2rem;
+   
+}
+.nav-btn{
+    text-decoration: none;
+    font-size: .9rem;
+    font-weight: 600;
+    padding: .4rem 1rem;
+    position: relative;
+    transition: .3s ease-in .4s;
+    color: var(--secondery);
+}
+.hover-color:hover{
+    color: var(--font-color) !important;
+    background-color: var(--secondery);
+}
+.nav-btn::before{
+    content: '';
+    height: 0;
+    width: 0;
+    border: 2px solid transparent;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    box-sizing: border-box;
+    transition: height .2s linear, width .3s linear .2s;
+}
+.nav-btn:hover::before{
+    height: 100%;
+    width: 100%;
+    border: 2px solid #6D9900;
+    border-right: none;
+    border-bottom: none;
+}
+.nav-btn::after{
+    content: '';
+    height: 0;
+    width: 0;
+    border: 2px solid transparent;
+    position: absolute;
+    top: 0;
+    right: 0;
+    box-sizing: border-box;
+    transition: height .2s linear, width .3s linear .2s;
+}
+.nav-btn:hover::after{
+    height: 100%;
+    width: 100%;
+    border: 2px solid #6D9900;
+    border-left: none;
+    border-top: none;
+}
+
+/* mobile nav */
+.mobile-nav a:hover{
+    color: #fff !important;
 }

@@ -1,24 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 const SingleProductCard = (props) => {
-    const { name, img, _id, price } = props.singleProduct;
+    const [out, setOut] = useState(false)
+    const { name, sideImage, pairImage, _id, price } = props.singleProduct;
     const navigate = useNavigate()
     const handleUpdate = id => {
         navigate(`/inventory/${id}`)
     }
     return (
-        // <Link to={}>
-        <div className='flex justify-around items-center py-5 coin-card cursor-pointer rounded-lg'>
-            <img className='w-1/4' src={img} alt="" />
-            <div>
-                <h1 className='text-lg font-bold text-gray-600'>{name}</h1>
-                <h1 className='text-lg font-bold text-gray-600'>{price}</h1>
+        <div className='cursor-pointer rounded-lg'>
+            <img
+                onMouseEnter={() => setOut(true)}
+                onMouseLeave={() => setOut(false)}
+                className='mx-auto' src={out ? pairImage : sideImage} alt="" />
+            <div className='text-center'>
+                <h1 className='text-lg md:text-xl font-bold text-gray-600'>{name}</h1>
+                <p className='font-bold text-[#6D9900]'>Price: ${price}</p>
             </div>
-            <button onClick={() => props.handleDelete(_id)}>Delete</button>
-            <button onClick={() => handleUpdate(_id)}>Update</button>
+            <div className='flex justify-evenly'>
+                <button onClick={() => props.handleDelete(_id)}>Delete</button>
+                <button onClick={() => handleUpdate(_id)}>Update</button>
+            </div>
         </div>
-        // </Link>
     );
 };
 

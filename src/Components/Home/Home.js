@@ -27,9 +27,11 @@ const Home = () => {
     return (
         <div>
             <Slider></Slider>
-            {
-                product.slice(0, 6).map(e => <SingleProductCard key={e._id} singleProduct={e} handleDelete={handleDelete}></SingleProductCard>)
-            }
+            <div className="grid grid-cols-1 md:grid-cols-3">
+                {
+                    product.slice(0, 6).map(e => <SingleProductCard key={e._id} singleProduct={e} handleDelete={handleDelete}></SingleProductCard>)
+                }
+            </div>
         </div>
     );
 };

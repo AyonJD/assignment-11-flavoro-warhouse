@@ -34,44 +34,44 @@ const Navbar = () => {
                                 />
                             </div>
                             <div className="hidden md:flex justify-between md:ml-auto">
-                                <div className="ml-10 flex items-baseline space-x-4 text-lg">
+                                <div className="nav-item ml-10 flex items-baseline space-x-4 text-lg">
                                     <CustomLink
                                         to="/"
-                                        className="px-3 py-2 rounded-md text-sm font-medium"
+                                        className="nav-btn px-3 py-2 rounded-md text-sm font-medium"
                                     >
                                         Home
                                     </CustomLink>
 
                                     <CustomLink
                                         to="/inventory"
-                                        className="px-3 py-2 rounded-md text-sm font-medium"
+                                        className="nav-btn px-3 py-2 rounded-md text-sm font-medium"
                                     >
                                         Inventory
                                     </CustomLink>
 
                                     <CustomLink
                                         to="/blog"
-                                        className="px-3 py-2 rounded-md text-sm font-medium"
+                                        className="nav-btn px-3 py-2 rounded-md text-sm font-medium"
                                     >
                                         Blog
                                     </CustomLink>
 
                                     <CustomLink
                                         to="add-item"
-                                        className="px-3 py-2 rounded-md text-sm font-medium"
+                                        className="nav-btn px-3 py-2 rounded-md text-sm font-medium"
                                     >
                                         Add Item
                                     </CustomLink>
 
                                     <CustomLink
                                         to="my-items"
-                                        className="px-3 py-2 rounded-md text-sm font-medium"
+                                        className="nav-btn px-3 py-2 rounded-md text-sm font-medium"
                                     >
                                         My Items
                                     </CustomLink>
                                     <CustomLink
                                         to="contact-us"
-                                        className="px-3 py-2 rounded-md text-sm font-medium"
+                                        className="nav-btn px-3 py-2 rounded-md text-sm font-medium"
                                     >
                                         Contact
                                     </CustomLink>
@@ -138,10 +138,10 @@ const Navbar = () => {
                 >
                     {(ref) => (
                         <div className="md:hidden" id="mobile-menu">
-                            <div ref={ref} className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                            <div ref={ref} className="mobile-nav px-2 pt-2 pb-3 space-y-1 sm:px-3">
                                 <CustomLink
                                     to="/"
-                                    className="hover:bg-gray-700 text-white block px-3 py-2 rounded-md text-base font-medium"
+                                    className="hover:bg-gray-700 hover:text-white text-white block px-3 py-2 rounded-md text-base font-medium"
                                 >
                                     Home
                                 </CustomLink>
