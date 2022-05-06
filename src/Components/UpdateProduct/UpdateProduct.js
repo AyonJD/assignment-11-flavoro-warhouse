@@ -4,7 +4,8 @@ import useSingleProduct from '../Hooks/useSingleProduct';
 const UpdateProduct = () => {
     const { id } = useParams()
     const [singleProduct] = useSingleProduct(id)
-    const { name, _id, img, price, quantity } = singleProduct;
+    const { name, _id, img, price, stock } = singleProduct;
+    
 
     const handleFormSubmit = event => {
         event.preventDefault();
@@ -12,7 +13,7 @@ const UpdateProduct = () => {
         if (!quantity) {
             alert("input field can't be empty")
         } else {
-            const newQuantity = parseInt(singleProduct.quantity) + parseInt(quantity)
+            const newQuantity = parseInt(singleProduct.stock) + parseInt(quantity)
             const newQuantityObj = { newQuantity }
 
             fetch(`http://localhost:5000/inventory/${id}`, {
@@ -34,7 +35,7 @@ const UpdateProduct = () => {
 
 
     const handleDeliver = id => {
-        const quantity = singleProduct.quantity;
+        const quantity = singleProduct.stock;
         if (quantity > 0) {
             const quantityObj = { quantity };
             const url = `http://localhost:5000/deliver/${id}`
@@ -63,7 +64,7 @@ const UpdateProduct = () => {
             <div>
                 <h1 className='text-lg font-bold text-gray-600'>{name}</h1>
                 <h1 className='text-lg font-bold text-gray-600'>{price}</h1>
-                <h1 className='text-lg font-bold text-gray-600'>{quantity}</h1>
+                <h1 className='text-lg font-bold text-gray-600'>{stock}</h1>
             </div>
 
             <form onSubmit={handleFormSubmit}>

@@ -42,6 +42,18 @@ const Home = () => {
                 </div>
             </div>
             <About></About>
+            <div className='bg-image-bottom relative bg-[#F5F5F5] mt-32 py-5 md:py-20'>
+                <div className='relative'>
+                    <img className='relative mx-auto' src={topProductLogo} alt="" />
+                    <h1 className='text-3xl md:text-4xl font-semibold relative text-center'>Special Product</h1>
+                    <p className='md:text-lg px-10 text-md text-gray-500 mt-3 letter-spacing text-center'>Organic Food Is Food Produced By Methods That Comply With The Standards.</p>
+                </div>
+                <div className="mt-20 mb-32 px-10 md:px-0 container mx-auto grid grid-cols-1 md:grid-cols-3 gap-x-10 gap-y-10">
+                    {
+                        product.slice(12, 15).map(e => <SingleProductCard key={e._id} singleProduct={e} handleDelete={handleDelete}></SingleProductCard>)
+                    }
+                </div>
+            </div>
         </div>
     );
 };
