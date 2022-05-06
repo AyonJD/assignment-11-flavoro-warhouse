@@ -3,7 +3,7 @@ import { Transition } from "@headlessui/react";
 import CustomLink from '../../CustomLink/CustomLink';
 import logo from '../../../Assets/Images/logo.png'
 import { Link } from 'react-router-dom';
-import { BsFacebook, BsTwitter, BsInstagram } from 'react-icons/bs'
+import { BsFacebook, BsTwitter, BsInstagram } from 'react-icons/bs';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -129,8 +129,8 @@ const Navbar = () => {
 
                 <Transition
                     show={isOpen}
-                    enter="transition ease-out duration-100 transform"
-                    enterFrom="opacity-0 scale-95"
+                    enter="transition ease-out duration-800 transform"
+                    enterFrom="opacity-0 scale-50"
                     enterTo="opacity-100 scale-100"
                     leave="transition ease-in duration-75 transform"
                     leaveFrom="opacity-100 scale-100"

@@ -12,7 +12,7 @@ const SingleProductCard = (props) => {
         navigate(`/inventory/${id}`)
     }
     return (
-        <div className='cursor-pointer rounded-lg bg-white px-5'>
+        <div className='cursor-pointer rounded-lg bg-white px-5 pb-5'>
             <img
                 onMouseEnter={() => setOut(true)}
                 onMouseLeave={() => setOut(false)}
