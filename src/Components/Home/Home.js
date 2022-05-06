@@ -3,6 +3,7 @@ import useProduct from '../Hooks/useProduct';
 import SingleProductCard from '../SingleProductCard/SingleProductCard';
 import Slider from '../Slider/Slider'
 import topProductLogo from '../../Assets/Images/topProductLogo.png'
+import About from './About/About';
 
 const Home = () => {
     const [product, setProduct] = useProduct()
@@ -28,8 +29,8 @@ const Home = () => {
     return (
         <div>
             <Slider></Slider>
-            <div className='bg-image relative bg-[#F5F5F5] mt-32 py-20'>
-                <div classsName="relative">
+            <div className='bg-image relative bg-[#F5F5F5] mt-32 py-5 md:py-20'>
+                <div className='relative'>
                     <img className='relative mx-auto' src={topProductLogo} alt="" />
                     <h1 className='text-3xl md:text-4xl font-semibold relative text-center'>Top Product</h1>
                     <p className='md:text-lg px-10 text-md text-gray-500 mt-3 letter-spacing text-center'>Organic Food Is Food Produced By Methods That Comply With The Standards.</p>
@@ -40,6 +41,7 @@ const Home = () => {
                     }
                 </div>
             </div>
+            <About></About>
         </div>
     );
 };
