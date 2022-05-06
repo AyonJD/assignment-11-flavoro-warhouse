@@ -185,14 +185,19 @@ ul li a {
     height: 1px;
 }
 
-@media only screen and (max-width: 768px) {
-    .bg-image::before {
-        display: none !important;
-    }
+.bg-footer-banner{
+    background-image: url('./Assets/Images/bottomBanner.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 @media only screen and (max-width: 768px) {
-    .bg-image::after {
+    .bg-image::before,
+    .bg-image::after,
+    .bg-image-bottom::before,
+    .bg-image-bottom::after
+    {
         display: none !important;
     }
 }

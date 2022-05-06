@@ -54,6 +54,12 @@ const Home = () => {
                     }
                 </div>
             </div>
+            <div className="bg-footer-banner py-14 text-center">
+                <h1 className='text-3xl font-bold text-[#6D9900]'>100% Organic Foods</h1>
+                <h1 className='py-5 text-3xl md:text-7xl font-bold line-height'>Organic Veggies Food<br/> Cook Healthy</h1>
+                <p className='md:text-lg font-semibold text-md text-gray-700 mt-3 letter-spacing w-full px-4 md:px-10 md:w-2/3 mx-auto'>Apparently we had reached a great height in the atmosphere, for the sky was a dead black, and the stars had ceased to twinkle. atmsphere</p>
+                <button className='text-white bg-[#6D9900] border-2 border-transparent text-sm md:text-lg mt-8 hover:border-2 hover:border-[#6D9900] hover:bg-transparent hover:text-[#6D9900] transition-all transition-duration:150ms font-medium hover:font-medium px-5 py-1 rounded-md'>Inventory</button>
+            </div>
         </div>
     );
 };
