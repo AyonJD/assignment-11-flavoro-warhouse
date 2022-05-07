@@ -11,6 +11,7 @@ import Login from './Components/Login/Login';
 import Register from './Components/Register/Register';
 import RequiredAuth from './Components/RequiredAuth/RequiredAuth';
 import MyItems from './Components/MyItems/MyItems';
+import NotFound from './Components/NotFound/NotFound';
 
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
         }></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
+        <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
       <ToastContainer />

@@ -208,6 +208,25 @@ ul li a {
     padding: 2px 15px;
 }
 
+/* Not found */
+.error {
+    animation: animate 1s linear infinite;
+}
+
+@keyframes animate {
+    0% {
+        color: red;
+        opacity: 1;
+    }
+
+    50% {
+        opacity: .5;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
 
 @media only screen and (max-width: 768px) {
 
