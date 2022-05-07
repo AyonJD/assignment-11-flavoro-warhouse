@@ -5,7 +5,7 @@ const UpdateProduct = () => {
     const { id } = useParams()
     const [singleProduct] = useSingleProduct(id);
     const navigate = useNavigate();
-    const { name, _id, sideImage, price, stock, details } = singleProduct;
+    const { name, _id, sideImage, price, stock, details, sold, supplier } = singleProduct;
 
 
     const handleFormSubmit = event => {
@@ -61,12 +61,16 @@ const UpdateProduct = () => {
 
     return (
         <div className='flex flex-col justify-around items-center py-5 coin-card rounded-lg'>
-            <img className='w-1/4' src={sideImage} alt="" />
-            <div className='text-center'>
+            <img className='md:w-1/4' src={sideImage} alt="" />
+            <div className='text-center md:w-1/4'>
                 <h1 className='text-3xl font-bold text-gray-600'>{name}</h1>
                 <h1 className='text-2xl mt-2 font-bold text-[#6D9900]'>Price: ${price}</h1>
-                <h1 className='text-lg font-bold text-gray-600'>Stock:{stock}</h1>
-                <p className='w-1/2 mx-auto text-[#707070] line-height mt-3 mb-1' title={details}>{details}...</p>
+                <div className="md:flex justify-between">
+                    <h1 className='text-lg font-bold text-gray-600'>Stock:{stock}</h1>
+                    <h1 className='text-lg font-bold text-gray-600'>Sold:{sold}</h1>
+                    <h1 className='text-lg font-bold text-gray-600'>Supplier:{supplier}</h1>
+                </div>
+                <p className='px-5 mx-auto text-[#707070] line-height mt-3 mb-1' title={details}>{details}</p>
             </div>
             <form onSubmit={handleFormSubmit}>
                 <div className="mt-3 flex items-center">

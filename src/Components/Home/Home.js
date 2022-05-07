@@ -37,12 +37,12 @@ const Home = () => {
                     <h1 className='text-3xl md:text-4xl font-semibold relative text-center'>Top Product</h1>
                     <p className='md:text-lg px-10 text-md text-gray-500 mt-3 letter-spacing text-center'>Organic Food Is Food Produced By Methods That Comply With The Standards.</p>
                 </div>
-                <div className="mt-20 mb-32 px-10 md:px-0 container mx-auto grid grid-cols-1 md:grid-cols-3 gap-x-10 gap-y-10">
+                <div className="mt-20 mb-16 px-10 md:px-0 container mx-auto grid grid-cols-1 md:grid-cols-3 gap-x-10 gap-y-10">
                     {
                         product.slice(0, 6).map(e => <SingleProductCard key={e._id} singleProduct={e} handleDelete={handleDelete}></SingleProductCard>)
                     }
-                    <button onClick={() => navigate('/inventory')}>Show Al Items</button>
                 </div>
+                <button onClick={() => navigate('/inventory')} className=' text-white bg-[#6D9900] border-2 border-transparent hover:border-2 hover:border-[#6D9900] hover:bg-transparent hover:text-[#6D9900] transition-all transition-duration:150ms font-medium hover:font-medium px-5 py-1 rounded-md absolute bottom-10 right-0 left-0  w-1/5 mx-auto z-50 '>Show All Items</button>
             </div>
             <About></About>
             <div className='bg-image-bottom relative bg-[#F5F5F5] mt-32 py-5 md:py-20'>
@@ -55,11 +55,12 @@ const Home = () => {
                     {
                         product.slice(12, 15).map(e => <SingleProductCard key={e._id} singleProduct={e} handleDelete={handleDelete}></SingleProductCard>)
                     }
+
                 </div>
             </div>
             <div className="bg-footer-banner py-14 text-center">
                 <h1 className='text-3xl font-bold text-[#6D9900]'>100% Organic Foods</h1>
-                <h1 className='py-5 text-3xl md:text-7xl font-bold line-height'>Organic Veggies Food<br/> Cook Healthy</h1>
+                <h1 className='py-5 text-3xl md:text-7xl font-bold line-height'>Organic Veggies Food<br /> Cook Healthy</h1>
                 <p className='md:text-lg font-semibold text-md text-gray-700 mt-3 letter-spacing w-full px-4 md:px-10 md:w-2/3 mx-auto'>Apparently we had reached a great height in the atmosphere, for the sky was a dead black, and the stars had ceased to twinkle. atmsphere</p>
                 <button onClick={() => navigate('/inventory')} className='text-white bg-[#6D9900] border-2 border-transparent text-sm md:text-lg mt-8 hover:border-2 hover:border-[#6D9900] hover:bg-transparent hover:text-[#6D9900] transition-all transition-duration:150ms font-medium hover:font-medium px-5 py-1 rounded-md'>Inventory</button>
             </div>
