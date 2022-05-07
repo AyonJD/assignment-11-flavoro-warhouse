@@ -9,6 +9,8 @@ import Footer from './Components/Shared/Footer/Footer';
 import { ToastContainer } from 'react-toastify';
 import Login from './Components/Login/Login';
 import Register from './Components/Register/Register';
+import RequiredAuth from './Components/RequiredAuth/RequiredAuth';
+import MyItems from './Components/MyItems/MyItems';
 
 
 function App() {
@@ -17,9 +19,26 @@ function App() {
       <Navbar></Navbar>
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
-        <Route path='/inventory' element={<Inventory></Inventory>}></Route>
-        <Route path='/add-item' element={<AddNewItem></AddNewItem>}></Route>
-        <Route path='/inventory/:id' element={<UpdateProduct></UpdateProduct>}></Route>
+        <Route path='/inventory' element={
+          <RequiredAuth>
+            <Inventory></Inventory>
+          </RequiredAuth>
+        }></Route>
+        <Route path='/add-item' element={
+          <RequiredAuth>
+            <AddNewItem></AddNewItem>
+          </RequiredAuth>
+        }></Route>
+        <Route path='/inventory/:id' element={
+          <RequiredAuth>
+            <UpdateProduct></UpdateProduct>
+          </RequiredAuth>
+        }></Route>
+        <Route path='/my-items' element={
+          <RequiredAuth>
+            <MyItems></MyItems>
+          </RequiredAuth>
+        }></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
       </Routes>

@@ -4,10 +4,26 @@ import CustomLink from '../../CustomLink/CustomLink';
 import logo from '../../../Assets/Images/logo.png'
 import { Link, useNavigate } from 'react-router-dom';
 import { BsFacebook, BsTwitter, BsInstagram } from 'react-icons/bs';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../../firebase.init';
+import { signOut } from 'firebase/auth';
+import { toast } from 'react-toastify';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const user = useAuthState(auth)
+    console.log(user);
     const navigate = useNavigate();
+    //Signout------->
+    const handleSignOut = () => {
+        signOut(auth)
+            .then(() => {
+                toast.success("Log Out successful", {
+                    toastId: "signOutSuccess"
+                });
+                navigate('/login');
+            })
+    }
     return (
         <div className=' sticky top-0 z-50 shadow-sm'>
             <div className="bg-[#6D9900] hidden md:block">
@@ -43,12 +59,32 @@ const Navbar = () => {
                                         Home
                                     </CustomLink>
 
-                                    <CustomLink
-                                        to="/inventory"
-                                        className="nav-btn px-3 py-2 rounded-md text-sm font-medium"
-                                    >
-                                        Inventory
-                                    </CustomLink>
+                                    {
+                                        user[0] && (
+                                            <>
+                                                <CustomLink
+                                                    to="/inventory"
+                                                    className="nav-btn px-3 py-2 rounded-md text-sm font-medium"
+                                                >
+                                                    Inventory
+                                                </CustomLink>
+
+                                                <CustomLink
+                                                    to="add-item"
+                                                    className="nav-btn px-3 py-2 rounded-md text-sm font-medium"
+                                                >
+                                                    Add Item
+                                                </CustomLink>
+
+                                                <CustomLink
+                                                    to="my-items"
+                                                    className="nav-btn px-3 py-2 rounded-md text-sm font-medium"
+                                                >
+                                                    My Items
+                                                </CustomLink>
+                                            </>
+                                        )
+                                    }
 
                                     <CustomLink
                                         to="/blog"
@@ -58,30 +94,21 @@ const Navbar = () => {
                                     </CustomLink>
 
                                     <CustomLink
-                                        to="add-item"
-                                        className="nav-btn px-3 py-2 rounded-md text-sm font-medium"
-                                    >
-                                        Add Item
-                                    </CustomLink>
-
-                                    <CustomLink
-                                        to="my-items"
-                                        className="nav-btn px-3 py-2 rounded-md text-sm font-medium"
-                                    >
-                                        My Items
-                                    </CustomLink>
-                                    <CustomLink
                                         to="contact-us"
                                         className="nav-btn px-3 py-2 rounded-md text-sm font-medium"
                                     >
                                         Contact
                                     </CustomLink>
                                 </div>
-                                <button onClick={() => navigate('/register')} className='md:ml-24 text-white bg-[#6D9900] border-2 border-transparent hover:border-2 hover:border-[#6D9900] hover:bg-transparent hover:text-[#6D9900] transition-all transition-duration:150ms font-medium hover:font-medium px-5 py-1 rounded-md'>Signup</button>
+                                {
+                                    user[0] ? <button onClick={handleSignOut} className='md:ml-24 text-white bg-[#6D9900] border-2 border-transparent hover:border-2 hover:border-[#6D9900] hover:bg-transparent hover:text-[#6D9900] transition-all transition-duration:150ms font-medium hover:font-medium px-5 py-1 rounded-md'>Logout</button> : <button onClick={() => navigate('/login')} className='md:ml-24 text-white bg-[#6D9900] border-2 border-transparent hover:border-2 hover:border-[#6D9900] hover:bg-transparent hover:text-[#6D9900] transition-all transition-duration:150ms font-medium hover:font-medium px-5 py-1 rounded-md'>Login</button>
+                                }
                             </div>
                         </div>
                         <div className="-mr-2 flex md:hidden">
-                            <button className='md:ml-24 text-sm md:hidden block text-white bg-[#6D9900] border-2 border-transparent hover:border-2 hover:border-[#6D9900] hover:bg-transparent hover:text-[#6D9900] transition-all transition-duration:150ms font-medium hover:font-medium px-3 py-1 rounded-md'>Signup</button>
+                            {
+                                user[0] ? <button onClick={handleSignOut} className='md:ml-24 text-sm md:hidden block text-white bg-[#6D9900] border-2 border-transparent hover:border-2 hover:border-[#6D9900] hover:bg-transparent hover:text-[#6D9900] transition-all transition-duration:150ms font-medium hover:font-medium px-3 py-1 rounded-md'>Logout</button> : <button onClick={() => navigate('/login')} className='md:ml-24 text-sm md:hidden block text-white bg-[#6D9900] border-2 border-transparent hover:border-2 hover:border-[#6D9900] hover:bg-transparent hover:text-[#6D9900] transition-all transition-duration:150ms font-medium hover:font-medium px-3 py-1 rounded-md'>Login</button>
+                            }
                             <button
                                 onClick={() => setIsOpen(!isOpen)}
                                 type="button"
