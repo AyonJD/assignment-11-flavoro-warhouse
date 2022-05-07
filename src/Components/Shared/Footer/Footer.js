@@ -1,7 +1,10 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
+import auth from '../../../firebase.init';
 
 const Footer = () => {
+    const [user] = useAuthState(auth)
     return (
         <div>
 
@@ -10,17 +13,23 @@ const Footer = () => {
                     <div>
                         <h2 className="mb-6 text-sm font-semibold text-gray-400 uppercase">Flavoro</h2>
                         <ul className="text-gray-300 ml-[-18px]">
-                            <li className="mb-4">
-                                <Link to="/inventory" className=" hover:underline">Inventory</Link>
-                            </li>
+                            {
+                                user && (
+                                    <>
+                                        <li className="mb-4">
+                                            <Link to="/inventory" className=" hover:underline">Inventory</Link>
+                                        </li>
+                                        <li className="mb-4">
+                                            <Link to="/add-item" className="hover:underline">Add Item</Link>
+                                        </li>
+                                        <li className="mb-4">
+                                            <Link to="/my-item" className="hover:underline">My Item</Link>
+                                        </li>
+                                    </>
+                                )
+                            }
                             <li className="mb-4">
                                 <Link to="/blog" className="hover:underline">Blog</Link>
-                            </li>
-                            <li className="mb-4">
-                                <Link to="/add-item" className="hover:underline">Add Item</Link>
-                            </li>
-                            <li className="mb-4">
-                                <Link to="/my-item" className="hover:underline">My Item</Link>
                             </li>
                             <li className="mb-4">
                                 <Link to="/contact" className="hover:underline">Contact</Link>

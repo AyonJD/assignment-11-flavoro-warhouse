@@ -44,8 +44,8 @@ const Navbar = () => {
                     <div className="flex items-center justify-between md:block">
                         <div className="flex items-center">
                             <div className="flex-shrink-0">
-                                <img
-                                    className=""
+                                <img onClick={() => navigate('/')}
+                                    className="cursor-pointer"
                                     src={logo}
                                     alt="Workflow"
                                 />

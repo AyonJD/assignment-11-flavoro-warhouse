@@ -13,7 +13,7 @@ const SingleProductCard = (props) => {
         navigate(`/inventory/${id}`)
     }
     return (
-        <div className='cursor-pointer rounded-lg bg-white px-5 pb-5'>
+        <div className='cursor-pointer rounded-lg bg-white px-7 pb-5'>
             <img
                 onMouseEnter={() => setOut(true)}
                 onMouseLeave={() => setOut(false)}
@@ -21,9 +21,9 @@ const SingleProductCard = (props) => {
             <div className="spacer w-full bg-[#6D9900]"></div>
             <div className='text-center mt-3'>
                 <h1 className='text-3xl font-bold text-gray-600 mb-1 md:mb-4'>{name}</h1>
-                <div className="md:flex justify-between items-center">
+                <div className="lg:flex justify-between items-center">
                     <p className='font-bold text-gray-600 mb-3'>In Stock: {stock}</p>
-                    <p className='text-2xl mt-2 font-bold text-[#6D9900] mb-3'>Price: ${price}</p>
+                    <p className='text-xl font-bold text-[#6D9900] mb-3'>Price: ${price}</p>
                     <p className='font-bold text-gray-600 mb-3'>Supplier: {supplier}</p>
                 </div>
                 <p className='text-[#707070] line-height' title={details}>{details.slice(0, 250)}...</p>

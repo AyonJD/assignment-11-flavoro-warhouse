@@ -42,7 +42,7 @@ const Home = () => {
                         product.slice(0, 6).map(e => <SingleProductCard key={e._id} singleProduct={e} handleDelete={handleDelete}></SingleProductCard>)
                     }
                 </div>
-                <button onClick={() => navigate('/inventory')} className=' text-white bg-[#6D9900] border-2 border-transparent hover:border-2 hover:border-[#6D9900] hover:bg-transparent hover:text-[#6D9900] transition-all transition-duration:150ms font-medium hover:font-medium px-5 py-1 rounded-md absolute bottom-10 right-0 left-0  w-1/5 mx-auto z-50 '>Show All Items</button>
+                <button onClick={() => navigate('/inventory')} className=' text-white bg-[#6D9900] border-2 border-transparent hover:border-2 hover:border-[#6D9900] hover:bg-transparent hover:text-[#6D9900] transition-all transition-duration:150ms font-medium hover:font-medium px-5 py-1 rounded-md absolute bottom-10 right-0 left-0  w-1/5 mx-auto z-10 '>Manage Inventory</button>
             </div>
             <About></About>
             <div className='bg-image-bottom relative bg-[#F5F5F5] mt-32 py-5 md:py-20'>

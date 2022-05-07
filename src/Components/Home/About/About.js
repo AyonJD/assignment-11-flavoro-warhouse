@@ -5,7 +5,7 @@ import founderImage from '../../../Assets/Images/founder.png'
 const About = () => {
     return (
         <div className='mt-20 container mx-auto'>
-            <div className="md:flex items-center">
+            <div className="lg:flex items-center">
                 <img src={aboutImage} alt="" />
                 <div className="content px-5 md:px-16 mt-7 md:mt-0">
                     <h1 className='text-xl text-[#6D9900] font-bold mb-2'>A Few Words About Us</h1>
