@@ -138,7 +138,7 @@ const Register = () => {
                     <label htmlFor="floating_repeat_password" className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Confirm password</label>
                 </div>
 
-                <button type="submit" className="text-white md:w-1/4 bg-[#F2A540] duration-500 hover:bg-[#c96304] focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center ">Register</button>
+                <button type="submit" className="text-white bg-[#6D9900] border-2 border-transparent hover:border-2 hover:border-[#6D9900] hover:bg-transparent hover:text-[#6D9900] transition-all transition-duration:150ms md:w-1/4 font-medium hover:font-medium px-5 py-1 rounded-md">Register</button>
                 <p className='font-medium mt-4 text-slate-600'>Already a member of ivent? <Link className='text-blue-700' to={'/login'}>Login Here</Link></p>
             </form>
             <div className="flex items-center my-8">
