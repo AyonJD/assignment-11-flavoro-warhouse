@@ -115,6 +115,14 @@ ul li a {
     border-top: none;
 }
 
+/* Loader */
+.loader{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 /* mobile nav */
 .mobile-nav a:hover {
     color: #fff !important;
