@@ -6,7 +6,7 @@ import { GrUpdate } from 'react-icons/gr'
 
 const SingleProductCard = (props) => {
     const [out, setOut] = useState(false)
-    const { name, sideImage, pairImage, _id, price, details } = props.singleProduct;
+    const { name, sideImage, pairImage, _id, price, details, stock } = props.singleProduct;
     const navigate = useNavigate()
     const handleUpdate = id => {
         navigate(`/inventory/${id}`)
@@ -21,6 +21,7 @@ const SingleProductCard = (props) => {
             <div className='text-center mt-3'>
                 <h1 className='text-lg md:text-xl font-bold text-gray-600 mb-1'>{name}</h1>
                 <p className='font-bold text-[#6D9900] mb-3'>Price: ${price}</p>
+                <p className='font-bold text-gray-600 mb-3'>In Stock: {stock}</p>
                 <p className='text-[#707070] line-height' title={details}>{details.slice(0, 250)}...</p>
             </div>
             <div className='flex justify-evenly mt-5'>

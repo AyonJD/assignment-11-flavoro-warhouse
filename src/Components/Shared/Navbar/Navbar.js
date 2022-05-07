@@ -12,7 +12,7 @@ import { toast } from 'react-toastify';
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const user = useAuthState(auth)
-    console.log(user);
+    // console.log(user);
     const navigate = useNavigate();
     //Signout------->
     const handleSignOut = () => {

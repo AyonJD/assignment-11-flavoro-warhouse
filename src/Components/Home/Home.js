@@ -41,6 +41,7 @@ const Home = () => {
                     {
                         product.slice(0, 6).map(e => <SingleProductCard key={e._id} singleProduct={e} handleDelete={handleDelete}></SingleProductCard>)
                     }
+                    <button onClick={() => navigate('/inventory')}>Show Al Items</button>
                 </div>
             </div>
             <About></About>

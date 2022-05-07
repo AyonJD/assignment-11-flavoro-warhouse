@@ -6,19 +6,28 @@ import { toast } from 'react-toastify';
 import googleLogo from '../../Assets/Images/icons8-google.svg'
 import auth from '../../firebase.init';
 import { useSendPasswordResetEmail } from 'react-firebase-hooks/auth';
+import useToken from '../Hooks/useToken';
 
 const Login = () => {
     const { register, handleSubmit, formState: { errors }, trigger } = useForm();
-    const [signInWithGoogle] = useSignInWithGoogle(auth);
+    const [signInWithGoogle, user2, loading2, error] = useSignInWithGoogle(auth);
     const location = useLocation();
     const navigate = useNavigate();
     const [user] = useAuthState(auth)
     const [
-        signInWithEmailAndPassword, , , error
+        signInWithEmailAndPassword, user1,
+        loading,
+        error1,
     ] = useSignInWithEmailAndPassword(auth);
     const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
     const from = location.state?.from?.pathname || '/';
-    const [email, setEmail] = useState('')
+    const [email, setEmail] = useState('');
+    const [token] = useToken(user);
+    useEffect(() => {
+        if (token) {
+            navigate(from, { replace: true })
+        }
+    })
     useEffect(() => {
         if (user) {
             navigate(from, { replace: true })
@@ -28,13 +37,13 @@ const Login = () => {
         signInWithEmailAndPassword(data.email, data.password)
     }
     useEffect(() => {
-        if (error) {
+        if (error || error1) {
             toast.error("Wrong email or password!", {
                 toastId: "passWrong"
             });
             return;
         }
-    }, [error])
+    }, [error, error1])
     const handleResetPassword = () => {
         if (!email) {
             toast.error("Please enter your email", {
@@ -46,6 +55,13 @@ const Login = () => {
             toast.success("Password reset link sent", {
                 toastId: "nomail"
             });
+        }
+    }
+
+    const handleSigninWithGoogle = () => {
+        signInWithGoogle()
+        if (user) {
+            navigate(from, { replace: true })
         }
     }
     return (
@@ -97,7 +113,7 @@ const Login = () => {
                 <div className="bottom"></div>
             </div>
             <div className="text-center">
-                <button onClick={() => signInWithGoogle()} className='flex items-center mx-auto google-button rounded-lg'><img src={googleLogo} alt="" /><p className='ml-2 text-lg'>Signin with Google</p></button>
+                <button onClick={handleSigninWithGoogle} className='flex items-center mx-auto google-button rounded-lg'><img src={googleLogo} alt="" /><p className='ml-2 text-lg'>Signin with Google</p></button>
             </div>
         </div>
     );

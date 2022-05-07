@@ -1,23 +1,23 @@
 import React from 'react';
-// import { useAuthState } from 'react-firebase-hooks/auth';
-// import { toast, ToastContainer } from 'react-toastify';
-// import { auth } from '../../firebase.init';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { toast, ToastContainer } from 'react-toastify';
+import auth from '../../firebase.init'
 
 const AddNewItem = () => {
 
-    // const [user] = useAuthState(auth)
+    const [user] = useAuthState(auth)
     const handleSubmit = e => {
         e.preventDefault();
 
-        const email = e.target.email.value;
+        const email = user?.email;
         const name = e.target.itemName.value
         const img = e.target.itemImage.value
-        const quantity = e.target.quantity.value
+        const stock = e.target.stock.value
         const price = e.target.price.value
         const sold = e.target.sold.value
-        const supplier = e.target.supplier.value
-        const description = e.target.description.value
-        const item = { email, name, supplier, price, quantity, sold, img, description, }
+        const supplierName = e.target.supplier.value
+        const details = e.target.details.value
+        const item = { email, name, supplierName, price, stock, sold, img, details, }
         console.log(item)
 
 
@@ -31,7 +31,7 @@ const AddNewItem = () => {
             .then(res => res.json())
             .then(data => {
                 console.log('success', data)
-                // toast('item added successfully')
+                toast.success('Item added successfully')
             })
 
         e.target.reset()
@@ -42,7 +42,7 @@ const AddNewItem = () => {
 
                 <div className="mb-6">
                     <label>Email:</label>
-                    <input type="email" id="text" name='email' className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                    <input type="email" value={user?.email} readOnly id="text" name='email' className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
                 </div>
 
                 <div className="mb-6">
@@ -51,15 +51,15 @@ const AddNewItem = () => {
                 </div>
                 <div className="mb-6">
                     <label>Item Image:</label>
-                    <input type="text" id="text" name='itemImage' placeholder="give image url" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+                    <input type="text" id="text" name='itemImage' placeholder="Image url" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
                 </div>
                 <div className="mb-6">
                     <label>Price:</label>
                     <input type="number" id="text" name='price' placeholder="price" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
                 </div>
                 <div className="mb-6">
-                    <label>Quantity:</label>
-                    <input type="number" id="text" name='quantity' placeholder="quantity" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+                    <label>Stock:</label>
+                    <input type="number" id="text" name='stock' placeholder="stock" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
                 </div>
                 <div className="mb-6">
                     <label>Sold:</label>
@@ -71,8 +71,8 @@ const AddNewItem = () => {
                     <input type="text" id="text" name='supplier' placeholder="supplier-name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
                 </div>
                 <div className="mb-6">
-                    <label>Description:</label>
-                    <textarea rows="10" cols="80" type="text" id="text" name='description' placeholder="write about the items" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+                    <label>Details:</label>
+                    <textarea rows="10" cols="80" type="text" id="text" name='details' placeholder="write about the items" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
                 </div>
 
 
