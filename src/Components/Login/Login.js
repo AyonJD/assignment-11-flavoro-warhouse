@@ -49,7 +49,7 @@ const Login = () => {
         }
     }
     return (
-        <div className='mt-32 mb-10 w-full md:w-1/2 mx-auto custom-shadow bg-[#e8eaec] pt-10 pb-10 px-10 rounded-lg'>
+        <div className='md:mt-32 mb-10 w-full md:w-1/2 mx-auto custom-shadow bg-[#e8eaec] pt-10 pb-10 px-10 rounded-lg'>
             <h1 className='text-2xl md:text-3xl font-medium text-slate-500 text-center mb-10'>Please Login to Continue</h1>
             <form onSubmit={handleSubmit(onSubmitParam)}>
                 <div className="relative z-0 mb-6 w-full group">

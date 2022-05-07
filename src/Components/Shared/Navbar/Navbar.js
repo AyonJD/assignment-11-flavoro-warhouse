@@ -174,12 +174,32 @@ const Navbar = () => {
                                     Home
                                 </CustomLink>
 
-                                <CustomLink
-                                    to="/inventory"
-                                    className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                                >
-                                    Inventory
-                                </CustomLink>
+                                {
+                                    user[0] && (
+                                        <>
+                                            <CustomLink
+                                                to="/inventory"
+                                                className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                                            >
+                                                Inventory
+                                            </CustomLink>
+
+                                            <CustomLink
+                                                to="/add-item"
+                                                className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                                            >
+                                                Add Item
+                                            </CustomLink>
+
+                                            <CustomLink
+                                                to="/my-items"
+                                                className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                                            >
+                                                My Items
+                                            </CustomLink>
+                                        </>
+                                    )
+                                }
 
                                 <CustomLink
                                     to="/blog"
@@ -188,19 +208,7 @@ const Navbar = () => {
                                     Blog
                                 </CustomLink>
 
-                                <CustomLink
-                                    to="/add-item"
-                                    className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                                >
-                                    Add Item
-                                </CustomLink>
 
-                                <CustomLink
-                                    to="/my-items"
-                                    className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                                >
-                                    My Items
-                                </CustomLink>
                                 <CustomLink
                                     to="/contact-us"
                                     className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"

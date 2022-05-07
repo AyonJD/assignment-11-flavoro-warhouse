@@ -42,7 +42,7 @@ const Register = () => {
         }
     })
     return (
-        <div className='mt-10 mb-10 w-full md:w-1/2 mx-auto custom-shadow bg-[#e8eaec] pt-10 pb-10 px-10 rounded-lg'>
+        <div className='md:mt-10 mb-10 w-full md:w-1/2 mx-auto custom-shadow bg-[#e8eaec] pt-10 pb-10 px-10 rounded-lg'>
             <h1 className='text-2xl md:text-3xl font-medium text-slate-500 text-center mb-10'>Please Register to Continue</h1>
             <form onSubmit={handleSubmit(onSubmitParam)}>
 
@@ -139,7 +139,7 @@ const Register = () => {
                 </div>
 
                 <button type="submit" className="text-white bg-[#6D9900] border-2 border-transparent hover:border-2 hover:border-[#6D9900] hover:bg-transparent hover:text-[#6D9900] transition-all transition-duration:150ms md:w-1/4 font-medium hover:font-medium px-5 py-1 rounded-md">Register</button>
-                <p className='font-medium mt-4 text-slate-600'>Already a member of ivent? <Link className='text-blue-700' to={'/login'}>Login Here</Link></p>
+                <p className='font-medium mt-4 text-slate-600'>Already a member of Flavoro? <Link className='text-blue-700' to={'/login'}>Login Here</Link></p>
             </form>
             <div className="flex items-center my-8">
                 <div className="top"></div>
