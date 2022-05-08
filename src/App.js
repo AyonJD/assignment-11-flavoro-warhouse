@@ -12,6 +12,8 @@ import Register from './Components/Register/Register';
 import RequiredAuth from './Components/RequiredAuth/RequiredAuth';
 import MyItems from './Components/MyItems/MyItems';
 import NotFound from './Components/NotFound/NotFound';
+import Contact from './Components/Contact/Contact';
+import Blog from './Components/Blog/Blog';
 
 
 function App() {
@@ -42,6 +44,8 @@ function App() {
         }></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
+        <Route path='/blog' element={<Blog></Blog>}></Route>
+        <Route path='/contact-us' element={<Contact></Contact>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>

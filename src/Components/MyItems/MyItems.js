@@ -65,7 +65,7 @@ const MyItems = () => {
                         }
                         <button onClick={() => navigate('/add-item')}>Add Item</button>
                     </>
-                ) : <h1>Please add some</h1>
+                ) : <h1 className='text-center mt-12 mb-7 text-2xl md:text-4xl'>You haven't added any. Please Add some.</h1>
             }
         </div>
     );

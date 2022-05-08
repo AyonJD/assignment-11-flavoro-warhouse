@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import googleLogo from '../../Assets/Images/icons8-google.svg';
@@ -6,9 +6,10 @@ import { useAuthState, useCreateUserWithEmailAndPassword, useSendEmailVerificati
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import auth from '../../firebase.init';
+import useToken from '../Hooks/useToken';
 
 const Register = () => {
-    const [createUserWithEmailAndPassword, , , error] = useCreateUserWithEmailAndPassword(auth);
+    const [createUserWithEmailAndPassword, ,loading , error] = useCreateUserWithEmailAndPassword(auth);
     const { register, handleSubmit, formState: { errors }, trigger } = useForm();
     const [signInWithGoogle] = useSignInWithGoogle(auth);
     const [sendEmailVerification] = useSendEmailVerification(auth);
@@ -16,7 +17,12 @@ const Register = () => {
     const location = useLocation();
     const navigate = useNavigate()
     const from = location.state?.from?.pathname || '/';
-
+    const [token] = useToken(user);
+    useEffect(() => {
+        if (token) {
+            navigate(from, { replace: true })
+        }
+    })
     const onSubmitParam = data => {
         if (data.password !== data.confirmpass) {
             toast.error("Password doesn't match!", {

@@ -1,11 +1,18 @@
 import React from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
+import { useAuthState, useSendEmailVerification } from 'react-firebase-hooks/auth';
 import { Navigate, useLocation } from 'react-router-dom';
 import auth from '../../firebase.init';
+import loader from '../../Assets/Images/loading.gif'
 
 const RequiredAuth = ({ children }) => {
+    const [user, loading, error] = useAuthState(auth);
+    const [sendEmailVerification, sending, error1] = useSendEmailVerification(auth);
     const location = useLocation();
-    const [user] = useAuthState(auth);
+    if (loading || sending) {
+        return <div className="loader container mx-auto">
+            <img src={loader} alt="" />
+        </div>
+    }
     if (!user) {
         return <Navigate to="/login" state={{ from: location }} replace />;
     }

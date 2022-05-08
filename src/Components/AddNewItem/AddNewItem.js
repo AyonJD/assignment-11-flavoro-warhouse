@@ -11,14 +11,13 @@ const AddNewItem = () => {
 
         const email = user?.email;
         const name = e.target.itemName.value
-        const img = e.target.itemImage.value
+        const sideImage = e.target.itemImage.value
         const stock = e.target.stock.value
         const price = e.target.price.value
         const sold = e.target.sold.value
         const supplierName = e.target.supplier.value
         const details = e.target.details.value
-        const item = { email, name, supplierName, price, stock, sold, img, details, }
-        console.log(item)
+        const item = { email, name, supplierName, price, stock, sold, sideImage, details, }
 
 
         fetch('http://localhost:5000/add-item', {
@@ -79,7 +78,6 @@ const AddNewItem = () => {
 
                 <input type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" value='Add' />
             </form>
-            {/* <ToastContainer /> */}
         </div>
     );
 };

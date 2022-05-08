@@ -1,5 +1,6 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import useSingleProduct from '../Hooks/useSingleProduct';
+import { toast } from 'react-toastify';
 
 const UpdateProduct = () => {
     const { id } = useParams()
@@ -12,7 +13,8 @@ const UpdateProduct = () => {
         event.preventDefault();
         const quantity = event.target.formQuantity.value;
         if (!quantity) {
-            alert("input field can't be empty")
+            toast.error("Restok field can't be empty.");
+            return;
         } else {
             const newQuantity = parseInt(singleProduct.stock) + parseInt(quantity)
             const newQuantityObj = { newQuantity }
@@ -28,7 +30,7 @@ const UpdateProduct = () => {
                 .then(data => {
                     console.log('success', data)
 
-                    //    toast('item restock successfully')
+                    toast.success('Item Restok successfully')
                 })
             event.target.reset()
         }
@@ -51,7 +53,7 @@ const UpdateProduct = () => {
                 .then(data => {
                     console.log('success', data)
 
-                    //    toast('item restock successfully')
+                    toast.success('Item Delivered successfully')
                 })
         } else {
             alert('Stock out')
@@ -74,7 +76,7 @@ const UpdateProduct = () => {
             </div>
             <form onSubmit={handleFormSubmit}>
                 <div className="mt-3 flex items-center">
-                    <input type="number" name='formQuantity' className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+                    <input type="number" name='formQuantity' className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
                     <input className='ml-2 text-white bg-[#6D9900] border-2 border-transparent hover:border-2 hover:border-[#6D9900] hover:bg-transparent hover:text-[#6D9900] transition-all transition-duration:150ms font-medium hover:font-medium px-5 py-2 cursor-pointer rounded-md' type="submit" value="Restock" />
                 </div>
             </form>
