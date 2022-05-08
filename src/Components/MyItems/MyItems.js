@@ -55,7 +55,7 @@ const MyItems = () => {
 
     }, [])
     return (
-        <div>
+        <div className='my-14'>
             {
                 items.length ? (
                     <>
@@ -64,7 +64,9 @@ const MyItems = () => {
                                 items.map(item => <SingleProductCard key={item._id} singleProduct={item} handleDelete={handleDelete}></SingleProductCard>)
                             }
                         </div>
-                        <button onClick={() => navigate('/add-item')}>Add Item</button>
+                        <div className="text-center">
+                            <button onClick={() => navigate('/inventory')} className='text-white bg-[#6D9900] border-2 border-transparent text-sm md:text-lg mt-8 hover:border-2 hover:border-[#6D9900] hover:bg-transparent hover:text-[#6D9900] transition-all transition-duration:150ms font-medium hover:font-medium px-10 md:w-1/5 py-1 rounded-md'>Inventory</button>
+                        </div>
                     </>
                 ) : <h1 className='text-center mt-12 mb-7 text-2xl md:text-4xl'>You haven't added any. Please Add some.</h1>
             }

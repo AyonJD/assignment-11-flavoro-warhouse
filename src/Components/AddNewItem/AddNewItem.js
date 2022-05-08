@@ -37,7 +37,7 @@ const AddNewItem = () => {
         e.target.reset()
     };
     return (
-        <>  
+        <>
             <h1 className='text-center text-3xl mt-10 mb-4'>Add<span className='ml-2 text-[#6D9900]'>Product</span></h1>
             <div className='md:w-2/5 md:mx-auto mx-5 mb-10'>
                 <form onSubmit={handleSubmit}>

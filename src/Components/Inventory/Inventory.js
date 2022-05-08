@@ -34,7 +34,7 @@ const Inventory = () => {
                 }
             </div>
             <div className="text-center">
-                <button onClick={() => navigate('/add-item')} className=' text-white bg-[#6D9900] border-2 border-transparent hover:border-2 hover:border-[#6D9900] hover:bg-transparent hover:text-[#6D9900] transition-all transition-duration:150ms font-medium hover:font-medium px-5 py-1 rounded-md  my-8 w-1/5 mx-auto z-50 '>Add Items</button>
+                <button onClick={() => navigate('/add-item')} className=' text-white bg-[#6D9900] border-2 border-transparent hover:border-2 hover:border-[#6D9900] hover:bg-transparent hover:text-[#6D9900] transition-all transition-duration:150ms font-medium hover:font-medium px-10 py-1 rounded-md  my-8 md:w-1/5 mx-auto z-50 '>Add Items</button>
             </div>
         </>
     );
