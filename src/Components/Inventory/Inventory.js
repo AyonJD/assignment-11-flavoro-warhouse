@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useProduct from '../Hooks/useProduct';
 import SingleProductCard from '../SingleProductCard/SingleProductCard';
+import AutoTyping, { BlinkCursor } from 'react-auto-typing'
 
 const Inventory = () => {
     const [product, setProduct] = useProduct();
@@ -28,6 +29,28 @@ const Inventory = () => {
     }
     return (
         <>
+
+            <h1 className='text-center text-3xl mt-10'>All<span className='ml-2 text-[#6D9900]'>Product</span></h1>
+            <div className="typewriter text-2xl font-medium text-[#6D9900] text-center mb-10">
+                {
+
+                    <>
+                        <AutoTyping
+                            active // <boolean>
+                            textRef='Choose yours' // <string>
+                            writeSpeed={150} // <number>
+                            deleteSpeed={150} // <number>
+                            delayToWrite={1000} // <number>
+                            delayToDelete={2000} // <number>
+                        />
+                        <BlinkCursor
+                            active // <boolean>
+                            blinkSpeed={500} // <number>
+                        />
+                    </>
+
+                }
+            </div>
             <div className='container mx-auto grid grid-cols-1 md:grid-cols-3 gap-x-10 gap-y-5'>
                 {
                     product.map(e => <SingleProductCard key={e._id} singleProduct={e} handleDelete={handleDelete}></SingleProductCard>)
