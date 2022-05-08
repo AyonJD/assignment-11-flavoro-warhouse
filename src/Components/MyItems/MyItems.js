@@ -19,7 +19,6 @@ const MyItems = () => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data);
                     if (data.deletedCount) {
                         const matched = items.filter(e => e._id !== id);
                         setItems(matched)
@@ -60,9 +59,11 @@ const MyItems = () => {
             {
                 items.length ? (
                     <>
-                        {
-                            items.map(item => <SingleProductCard key={item._id} singleProduct={item} handleDelete={handleDelete}></SingleProductCard>)
-                        }
+                        <div className='container mx-auto grid grid-cols-1 md:grid-cols-3 gap-x-10 gap-y-5'>
+                            {
+                                items.map(item => <SingleProductCard key={item._id} singleProduct={item} handleDelete={handleDelete}></SingleProductCard>)
+                            }
+                        </div>
                         <button onClick={() => navigate('/add-item')}>Add Item</button>
                     </>
                 ) : <h1 className='text-center mt-12 mb-7 text-2xl md:text-4xl'>You haven't added any. Please Add some.</h1>
