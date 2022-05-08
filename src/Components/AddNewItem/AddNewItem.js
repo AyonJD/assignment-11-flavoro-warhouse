@@ -15,9 +15,9 @@ const AddNewItem = () => {
         const stock = e.target.stock.value
         const price = e.target.price.value
         const sold = e.target.sold.value
-        const supplierName = e.target.supplier.value
+        const supplier = e.target.supplier.value
         const details = e.target.details.value
-        const item = { email, name, supplierName, price, stock, sold, sideImage, details, }
+        const item = { email, name, supplier, price, stock, sold, sideImage, details, }
 
 
         fetch('http://localhost:5000/add-item', {

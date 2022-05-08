@@ -14,7 +14,6 @@ const UpdateProduct = () => {
         const quantity = event.target.formQuantity.value;
         if (!quantity) {
             toast.error("Restok field can't be empty.");
-            return;
         } else {
             const newQuantity = parseInt(singleProduct.stock) + parseInt(quantity)
             const newQuantityObj = { newQuantity }
@@ -28,7 +27,6 @@ const UpdateProduct = () => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log('success', data)
 
                     toast.success('Item Restok successfully')
                 })
