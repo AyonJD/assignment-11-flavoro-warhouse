@@ -8,7 +8,7 @@ const Footer = () => {
     return (
         <div>
 
-            <footer className="bg-gray-800">
+            <footer className="bg-[#1f2905]">
                 <div className="grid grid-cols-2 gap-8 py-8 px-6 md:grid-cols-4">
                     <div>
                         <h2 className="mb-6 text-sm font-semibold text-gray-400 uppercase">Flavoro</h2>
@@ -86,7 +86,7 @@ const Footer = () => {
                         </ul>
                     </div>
                 </div>
-                <div className="py-6 px-4 bg-gray-700 md:flex md:items-center md:justify-between">
+                <div className="py-6 px-4 bg-[#101601] md:flex md:items-center md:justify-between">
                     <span className="text-sm text-gray-300 sm:text-center">© 2022 <Link to="https://github.com/AyonJD">Flavoro</Link>. All Rights Reserved.
                     </span>
                     <div className="flex mt-4 space-x-6 sm:justify-center md:mt-0">

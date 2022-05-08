@@ -18,7 +18,7 @@ const UpdateProduct = () => {
             const newQuantity = parseInt(singleProduct.stock) + parseInt(quantity)
             const newQuantityObj = { newQuantity }
 
-            fetch(`http://localhost:5000/inventory/${id}`, {
+            fetch(`https://intense-dusk-38054.herokuapp.com/inventory/${id}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json'
@@ -39,7 +39,7 @@ const UpdateProduct = () => {
         const quantity = singleProduct.stock;
         if (quantity > 0) {
             const quantityObj = { quantity };
-            const url = `http://localhost:5000/deliver/${id}`
+            const url = `https://intense-dusk-38054.herokuapp.com/deliver/${id}`
             fetch(url, {
                 method: 'PUT',
                 headers: {

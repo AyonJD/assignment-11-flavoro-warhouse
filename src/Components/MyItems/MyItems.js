@@ -15,7 +15,7 @@ const MyItems = () => {
     const handleDelete = id => {
         const confirm = window.confirm('Are you sure?');
         if (confirm) {
-            fetch(`http://localhost:5000/inventory/${id}`, {
+            fetch(`https://intense-dusk-38054.herokuapp.com/inventory/${id}`, {
                 method: 'DELETE',
             })
                 .then(res => res.json())
@@ -33,7 +33,7 @@ const MyItems = () => {
     useEffect(() => {
         const getItems = async () => {
             const email = user?.email
-            const url = `http://localhost:5000/singleItem?email=${email}`
+            const url = `https://intense-dusk-38054.herokuapp.com/singleItem?email=${email}`
             // console.log(url);
             try {
                 const { data } = await axios.get(url, {
@@ -45,7 +45,7 @@ const MyItems = () => {
                 setItems(data)
 
             } catch (error) {
-
+                console.log(error);
                 if (error.response.status === 403 || error.response.status === 401) {
                     signOut(auth)
                     navigate('/login')

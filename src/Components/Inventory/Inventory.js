@@ -11,7 +11,7 @@ const Inventory = () => {
     const handleDelete = id => {
         const confirm = window.confirm('Are you sure?');
         if (confirm) {
-            fetch(`http://localhost:5000/inventory/${id}`, {
+            fetch(`https://intense-dusk-38054.herokuapp.com/inventory/${id}`, {
                 method: 'DELETE',
             })
                 .then(res => res.json())

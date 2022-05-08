@@ -21,7 +21,7 @@ const AddNewItem = () => {
         const item = { email, name, supplier, price, stock, sold, sideImage, pairImage, details }
 
 
-        fetch('http://localhost:5000/add-item', {
+        fetch('https://intense-dusk-38054.herokuapp.com/add-item', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
