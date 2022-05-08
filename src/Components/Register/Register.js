@@ -7,11 +7,12 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import auth from '../../firebase.init';
 import useToken from '../Hooks/useToken';
+import loderImage from '../../Assets/Images/smallLoader.gif'
 
 const Register = () => {
-    const [createUserWithEmailAndPassword, ,loading , error] = useCreateUserWithEmailAndPassword(auth);
+    const [createUserWithEmailAndPassword, , loading, error] = useCreateUserWithEmailAndPassword(auth);
     const { register, handleSubmit, formState: { errors }, trigger } = useForm();
-    const [signInWithGoogle] = useSignInWithGoogle(auth);
+    const [signInWithGoogle, , loading2, error2] = useSignInWithGoogle(auth);
     const [sendEmailVerification] = useSendEmailVerification(auth);
     const [user] = useAuthState(auth);
     const location = useLocation();
@@ -38,6 +39,9 @@ const Register = () => {
         }
         createUserWithEmailAndPassword(data.email, data.password);
         sendEmailVerification();
+
+
+
     }
     useEffect(() => {
         if (user) {
@@ -47,6 +51,12 @@ const Register = () => {
             navigate(from, { replace: true })
         }
     })
+    let loader;
+    if (loading || loading2) {
+        loader = <div>
+            <img src={loderImage} alt="" />
+        </div>
+    }
     return (
         <div className='md:mt-10 mb-10 w-full md:w-1/2 mx-auto custom-shadow bg-[#e8eaec] pt-10 pb-10 px-10 rounded-lg'>
             <h1 className='text-2xl md:text-3xl font-medium text-slate-500 text-center mb-10'>Please Register to Continue</h1>
@@ -144,7 +154,10 @@ const Register = () => {
                     <label htmlFor="floating_repeat_password" className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Confirm password</label>
                 </div>
 
-                <button type="submit" className="text-white bg-[#6D9900] border-2 border-transparent hover:border-2 hover:border-[#6D9900] hover:bg-transparent hover:text-[#6D9900] transition-all transition-duration:150ms md:w-1/4 font-medium hover:font-medium px-5 py-1 rounded-md">Register</button>
+                {
+                    loader ? loader : <button type="submit" className="text-white bg-[#6D9900] border-2 border-transparent hover:border-2 hover:border-[#6D9900] hover:bg-transparent hover:text-[#6D9900] transition-all transition-duration:150ms md:w-1/4 font-medium hover:font-medium px-5 py-1 rounded-md">Register</button>
+                }
+
                 <p className='font-medium mt-4 text-slate-600'>Already a member of Flavoro? <Link className='text-blue-700' to={'/login'}>Login Here</Link></p>
             </form>
             <div className="flex items-center my-8">

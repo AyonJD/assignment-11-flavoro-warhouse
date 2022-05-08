@@ -33,20 +33,26 @@ const MyItems = () => {
         const getItems = async () => {
             const email = user?.email
             const url = `http://localhost:5000/singleItem?email=${email}`
-
+            // console.log(url);
             try {
                 const { data } = await axios.get(url, {
                     headers: {
                         authorization: `Bearer ${localStorage.getItem('token')}`
                     }
                 })
-
+                console.log(data, "data");
+                // fetch(url)
+                //     .then(res => res.json())
+                //     .then(data => {
+                //         console.log(data);
+                //     })
                 setItems(data)
+
             } catch (error) {
 
                 if (error.response.status === 403 || error.response.status === 401) {
                     signOut(auth)
-                    navigate('/signin')
+                    navigate('/login')
                 }
                 toast(error.message)
             }

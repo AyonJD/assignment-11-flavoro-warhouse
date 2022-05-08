@@ -7,6 +7,7 @@ import googleLogo from '../../Assets/Images/icons8-google.svg'
 import auth from '../../firebase.init';
 import { useSendPasswordResetEmail } from 'react-firebase-hooks/auth';
 import useToken from '../Hooks/useToken';
+import loderImage from '../../Assets/Images/smallLoader.gif'
 
 const Login = () => {
     const { register, handleSubmit, formState: { errors }, trigger } = useForm();
@@ -65,6 +66,12 @@ const Login = () => {
             navigate(from, { replace: true })
         }
     }
+    let loader;
+    if (loading || loading2) {
+        loader = <div>
+            <img src={loderImage} alt="" />
+        </div>
+    }
     return (
         <div className='md:mt-12 mb-10 w-full md:w-1/2 mx-auto custom-shadow bg-[#e8eaec] pt-10 pb-10 px-10 rounded-lg'>
             <h1 className='text-2xl md:text-3xl font-medium text-slate-500 text-center mb-10'>Please Login to Continue</h1>
@@ -101,7 +108,10 @@ const Login = () => {
                     <label htmlFor="floating_password" className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Password</label>
                 </div>
 
-                <button type="submit" className="text-white bg-[#6D9900] border-2 border-transparent hover:border-2 hover:border-[#6D9900] hover:bg-transparent hover:text-[#6D9900] transition-all transition-duration:150ms md:w-1/4 font-medium hover:font-medium px-5 py-1 rounded-md">Login</button>
+
+                {
+                    loader ? loader : <button type="submit" className="text-white bg-[#6D9900] border-2 border-transparent hover:border-2 hover:border-[#6D9900] hover:bg-transparent hover:text-[#6D9900] transition-all transition-duration:150ms md:w-1/4 font-medium hover:font-medium px-5 py-1 rounded-md">Login</button>
+                }
                 <div className="flex flex-col">
                     <p className='text-sm md:text-base font-medium mt-5 text-slate-600'>New in Flavoro? <Link className='text-blue-700 underline' to={'/register'}>Join Now</Link></p>
                     <p className='text-sm md:text-base font-medium text-slate-600 mt-2'>Forgot password? <Link onClick={handleResetPassword} className='text-blue-700 underline' to={'/login'}>Reset password</Link></p>
