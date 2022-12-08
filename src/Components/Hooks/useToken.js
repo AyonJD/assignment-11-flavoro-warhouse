@@ -9,7 +9,7 @@ const useToken = user => {
 
             const email = user?.email
             if (email) {
-                const { data } = await axios.post('https://intense-dusk-38054.herokuapp.com/signin', { email })
+                const { data } = await axios.post('https://flavoro.up.railway.app/signin', { email })
                 setToken(data.getToken);
                 localStorage.setItem('token', data.getToken);
 

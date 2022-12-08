@@ -18,7 +18,7 @@ const UpdateProduct = () => {
             const newQuantity = parseInt(singleProduct.stock) + parseInt(quantity)
             const newQuantityObj = { newQuantity }
 
-            fetch(`https://intense-dusk-38054.herokuapp.com/inventory/${id}`, {
+            fetch(`https://flavoro.up.railway.app/inventory/${id}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json'
@@ -39,7 +39,7 @@ const UpdateProduct = () => {
         const quantity = singleProduct.stock;
         if (quantity > 0) {
             const quantityObj = { quantity };
-            const url = `https://intense-dusk-38054.herokuapp.com/deliver/${id}`
+            const url = `https://flavoro.up.railway.app/deliver/${id}`
             fetch(url, {
                 method: 'PUT',
                 headers: {

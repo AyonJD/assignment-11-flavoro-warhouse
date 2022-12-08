@@ -15,7 +15,7 @@ const MyItems = () => {
     const handleDelete = id => {
         const confirm = window.confirm('Are you sure?');
         if (confirm) {
-            fetch(`https://intense-dusk-38054.herokuapp.com/inventory/${id}`, {
+            fetch(`https://flavoro.up.railway.app/inventory/${id}`, {
                 method: 'DELETE',
             })
                 .then(res => res.json())
@@ -33,7 +33,7 @@ const MyItems = () => {
     useEffect(() => {
         const getItems = async () => {
             const email = user?.email
-            const url = `https://intense-dusk-38054.herokuapp.com/singleItem?email=${email}`
+            const url = `https://flavoro.up.railway.app/singleItem?email=${email}`
             // console.log(url);
             try {
                 const { data } = await axios.get(url, {
